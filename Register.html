@@ -1,0 +1,153 @@
+<!DOCTYPE html!>
+<html>
+<head>
+<title>Register</title>
+
+<style>
+body{
+
+      margin:0;
+	  padding:0;
+	  background-size: cover;
+	  background-position:center;
+	  font-family:sans-serif;
+	  background-color:lightblue;
+	  
+       
+	}
+.loginbox{
+       width:381px;
+       height:749px;
+      
+       
+       background:#000;
+       color:#fff;
+	   
+	   left:50%
+	   
+	   
+	   transform:translate(-50%,-50%);
+	   box-sizing:border-box;
+	   padding:70px ;
+	   position:center;
+	   top:50%;
+	   margin:200px;
+	   margin-top: -50px;
+       /* margin-left: -100px; */
+	   
+}
+h1{
+	margin:8px;
+	padding:0 0 20px;
+	text-align: center;
+	font-size:32px;
+	font-family:initial;
+}
+h3{
+	margin:8px;
+	padding:0 0 20px;
+	text-align: center;
+	font-size:32px;
+	font-family:initial;
+}
+.avatar{
+	
+	width:100px;
+	height:100px;
+	border-radius:50%;
+	position:center;
+	top:-50%;
+	right:calc(50% - 50px);
+	margin-left:134px;
+
+}	
+.loginbox{
+	margin:0;
+	padding:0;
+	font-weight:bold;
+	margin-left:512px;
+}
+.loginbox input{
+	width:100%;
+	margin-bottom: 42px;
+}
+
+.loginbox input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+.loginbox input[type=email], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+.loginbox input[type=tel], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+.loginbox input[type=password], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+.loginbox input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.loginbox input[type=submit]:hover {
+    background-color: #45a049;
+}
+</style>
+<body>
+<div class="loginbox">
+<img src="siimage.png" class="avatar">
+<h1>Sign In </h1>
+<h3>Create Your Account</h3>
+<form method="post" action="form_connect.php">
+FirstName:<br> <input type="text" name="first_name" pattern="[A-Za-z]{1,32}"  required"[A-Za-z]{1,32}"><br>
+LastName:<br> <input type="text" name="last_name" pattern="[A-Za-z]{1,32}"  required"[A-Za-z]{1,32}"><br>
+Email Id:<br><input type="email" pattern ="[^@]*@[^@]*" name="email"><br>
+PhoneNo:<br><input type="tel" name="phone" pattern="^\d{10}$" required><br>
+   <label for="city">City:</label><br>
+    <select id="city" name="city">
+      <option value="gurgaon">Gurgaon</option>
+      <option value="delhi">Delhi</option>
+      <option value="canada">Faridabad</option>
+      <option value="usa">Noida</option></label></select>
+      <br>
+Password:
+<br>
+<input type="password" name="password"><br>
+<input type="submit"  name ="submit" value="Submit">
+ 
+</div>
+</form>
+</body>
+</html>

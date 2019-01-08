@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<title>Online Books Reading</title>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<body>
+  <?php
+require('conn.php'); 
+session_start();
+$email= $_SESSION['email'];
+$sql = "SELECT * FROM register where email='$email'";
+$result = mysqli_query($connection, $sql);
+$status;
+$name;
+if (mysqli_num_rows($result) > 0) {
+   // output data of each row
+   while($row = mysqli_fetch_assoc($result)) {
+$name = $row["first_name"];
+$status=$row["status"];
+       
+   }
+} else {
+   echo "0 results";
+
+}
+
+?>
+
+ <div class="container-fluid">
+	<nav class="navbar navbar-default">
+	<nav class="navbar-header">
+	<nav class="navbar-expand-md">
+	<div>
+	<a><img src="bigideabooks.png" id="logo"></a>
+	  <ul class="nav navbar-nav">
+	  <li class="active"><a href="">Home</a></li>
+        <li><a href="b1.html">AboutUs</a></li>
+        <li><a href="Contact.html">ContactUs</a></li>
+	   <li><a href="Register.html">SignUp</a></li>
+	   <li><a href="LogIn.html">LogIn</a></li>
+	  
+	  
+ <?php
+ if($status==1){
+
+ ?>
+
+<?php echo "Welcome ".$name; ?>
+ <li><a href="registered_users.php">Register Users</a></li>
+<li><a href="logout.php">Logout</li>
+<?php
+ }
+ elseif($status==0){
+  echo "Welcome ".$name; 
+ 
+ ?>
+ <li><a href="logout.php">Logout</li>
+ 
+ <?php
+ }else{
+ 
+ ?>
+  <li><a href="Register.html">SignUp</a></li>
+  <li><a href="LogIn.html">LogIn</a></li>
+ <?php
+ }
+ ?>
+	  
+    </ul>
+  </div>
+</nav>
+
+<form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+  <input type="text" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+  
+  <br>
+  
+     
+ 
+<div class="tab">
+  
+   <button><a href= "sh.html" >New Arrival</a></button>
+  <button class="tablinks" onclick="openCity(event, 'Pre Order')">Pre Order</button>
+  <button class="tablinks" onclick="openCity(event, 'Best OFFERS')">Best Offers</button>
+  <button class="tablinks" onclick="openCity(event, 'Best Sellers')">Best Sellers</button>
+  <button class="tablinks" onclick="openCity(event, 'TextBooks')">TextBooks</button>
+  <button class="tablinks" onclick="openCity(event, 'Award Winners')">Award Winners</button>
+  <button class="tablinks" onclick="openCity(event, 'Featured Authors')">Featured Authors</button>
+  
+  
+  
+</div>
+
+  <br>
+  <div class="sidenav">
+  <a href="#about">Architecture</a>
+  <a href="#services">Arts And Photography</a>
+  <a href="#clients">Biographies & Memoirs</a>
+  <a href="#contact">Body,Mind & Spirit</a>
+  <a href="#about">Business And Economy</a>
+  <a href="#services">Children And Teens</a>
+  <a href="#clients">Computer & Internet</a>
+  <a href="#contact">Cookery,Food & Wine</a>
+  <a href="">Dictionaries&Laungauge</a>
+  <a href="">English Laungauge Teaching</a>
+  <a href="">Environment & Geography</a>
+  <a href="">Fiction</a>
+  <a href="">History & Humanities</a>
+  <a href="">Law</a>
+  <a href="">Lifestyle</a>
+  <a href="">Literature & Literary studies</a>
+  <a href="">Medicine</a>
+  <a href="">Music</a>
+  </div>
+ &nbsp; &nbsp;
+  
+
+<div id="myCarousel" class="carousel slide " data-ride="carousel"  style="width: 1000px; margin: 0 auto"  >
+    <!-- Indicators -->
+   <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="c2.jpg" alt="im" style="width:50%;">
+      </div>
+
+      <div class="item">
+        <img src="w.jpg" alt="ad" style="width:50%;">
+      </div>
+    
+      <div class="item">
+        <img src="m.png" alt="nf" style="width:50%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+   </div>
+	<hr>
+    <br>
+	
+
+<div class="container">
+  <ul class="nav nav-pills">
+   
+    <li><a href="#">BOOKS</a></li>
+  </ul>
+</div>
+   
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?php
+include('header.php');
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "detail";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+ session_start();
+  if( isset ($_SESSION['email']))
+    {
+     $email= $_SESSION['email'];
+
+  $sql = "SELECT id FROM register where email='$email'";
+  $result = mysqli_query($conn, $sql);
+     $id;
+ 
+      if (mysqli_num_rows($result) > 0) {
+   // output data of each row
+   while($row = mysqli_fetch_assoc($result)) {
+
+$id=$row["id"];
+//session variable
+      }//while
+  
+    }//if
+	}	
+	$res=mysqli_query($conn,"select Quantity,TOtal from cart where user_id='$id' ");
+
+
+    while($row = mysqli_fetch_assoc($res))
+{
+
+    $product_id = $row["Quantity"];
+$product_price = $row["Total"];}
+	
+	echo"<table border='3'> <tr>
+  <th>Cart Id</th>
+  <th>Total Item</th>
+<th>TOtal</th></tr>";
+while($row = mysqli_fetch_assoc($result)){
+	 echo"<tr>";
+	  echo "<td>" . $row['Quantity'] . "</td><td>" . $row['Total'] . "</td>" 
+	  echo"</tr>"
+	  }
+echo "</table>";
+	
+mysqli_close($conn);
+?>
